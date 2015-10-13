@@ -42,7 +42,7 @@ import java.io.IOException;
 
 @Configuration
 @EnableOAuth2Sso
-@EnableWebSecurity(debug = true)
+@EnableWebSecurity(debug = false)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
