@@ -15,27 +15,28 @@
 
 <html>
 <head>
-<title>Get your sandbox</title>
-<link
-	href="css/angular-bootstrap.css"
-	rel="stylesheet">
-<style type="text/css">
-[ng\:cloak], [ng-cloak], .ng-cloak {
-	display: none !important;
-}
-</style>
+    <title>Get your sandbox</title>
+    <link
+            href="css/angular-bootstrap.css"
+            rel="stylesheet">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body ng-app="sandbox" ng-cloak class="ng-cloak">
-	<div ng-controller="navigation" class="container">
-		<ul class="nav nav-pills" role="tablist">
-			<li ng-class="{active:tab('home')}"><a href="#/">home</a></li>
-			<li><a href="login">login</a></li>
-			<li ng-show="authenticated"><a href="" ng-click="logout()">logout</a></li>
-		</ul>
-	</div>
-	<div ng-view class="container"></div>
-	<script src="js/angular-bootstrap.js" type="text/javascript"></script>
-	<script src="js/sandbox.js"></script>
+<div ng-controller="navigation" class="container">
+    <ul class="nav nav-pills" role="tablist">
+        <li ng-class="{active:tab('home')}"><a href="#/">home</a></li>
+        <li><a href="login">login</a></li>
+        <li ng-show="authenticated"><a href="" ng-click="logout()">logout</a></li>
+    </ul>
+</div>
+<div ng-view class="container"></div>
+<script src="js/angular-bootstrap.js" type="text/javascript"></script>
+<script src="js/sandbox.js"></script>
 </body>
 </html>
