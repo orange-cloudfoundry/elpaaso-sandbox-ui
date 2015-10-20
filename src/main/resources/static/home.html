@@ -14,12 +14,10 @@
   -->
 
 <h1>your sandbox details</h1>
-<div ng-show="authenticated">
+<div>
 	<p>Your org name is : <b>{{sandbox.orgName}}</b></p>
 	<p>Your space name is : <b>  {{sandbox.spaceName}}</b></p>
 	<p>You can login to your space by typing :</p>
 	<p>cf login --skip-ssl-validation -a {{sandbox.apiUrl}} -u {{sandbox.spaceName}} -o {{sandbox.orgName}} -s {{sandbox.spaceName}}</p>
 </div>
-<div  ng-show="!authenticated">
-	<p>Login to see your sandbox details</p>
 </div>
