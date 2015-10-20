@@ -26,17 +26,10 @@ import java.security.Principal;
 
 @SpringBootApplication
 @EnableZuulProxy
-@RestController
 public class ElpaasoSandboxUiApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ElpaasoSandboxUiApplication.class, args);
-    }
-
-
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public Principal me(Principal principal) {
-        return principal;
     }
 
 }
