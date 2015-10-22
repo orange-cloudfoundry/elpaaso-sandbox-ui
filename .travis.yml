@@ -1,0 +1,10 @@
+language: bash
+sudo: required
+services:
+  - docker
+script:
+  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && docker run -it -v $(pwd):/root/sources -e BINTRAY_USER -e BINTRAY_PASSWORD -e COVERALLS_TOKEN -w /root/sources maven:3.3.3-jdk-8 mvn clean deploy --settings settings.xml || true'
+  - '[ "${TRAVIS_PULL_REQUEST}" != "false" ] && docker run -it -v $(pwd):/root/sources -w /root/sources maven:3.3.3-jdk-8 mvn clean verify --settings settings.xml || true'
+env:
+  global:
+
