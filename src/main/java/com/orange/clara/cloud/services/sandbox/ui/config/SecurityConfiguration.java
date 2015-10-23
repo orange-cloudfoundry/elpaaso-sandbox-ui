@@ -23,9 +23,12 @@ package com.orange.clara.cloud.services.sandbox.ui.config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.autoconfigure.ManagementServerProperties;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -44,62 +47,121 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Configuration
-@EnableOAuth2Sso
 @EnableWebSecurity(debug = false)
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-    private static final Logger LOGGER = LoggerFactory.getLogger(XTrustProvider.class);
+//@EnableOAuth2Sso
+public class SecurityConfiguration /*extends WebSecurityConfigurerAdapter */{
+    private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfiguration.class);
 
     @Autowired
     SecurityProperties securityProperties;
 
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-        if (securityProperties.isRequireSsl()) {
-            LOGGER.info("SSL enabled in springboot config, cannot access this app using http");
-            http.requiresChannel().anyRequest().requiresSecure();
-        }
-        if (securityProperties.isEnableCsrf()) {
-            LOGGER.info("CSRF enabled in springboot config");
-            http.csrf()
-                    .csrfTokenRepository(csrfTokenRepository())
+    @Autowired
+    ManagementServerProperties managementServerProperties;
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+
+        String username = securityProperties.getUser().getName();
+        String password = securityProperties.getUser().getPassword();
+        String adminRole = managementServerProperties.getSecurity().getRole();
+        LOGGER.info("Authorizing user {} with role {} ",username,adminRole);
+        auth.inMemoryAuthentication().withUser(username).password(password).roles(adminRole);
+    }
+
+    @Configuration
+    @Order(1)
+    public static class ActuatorBasicAuthConfig extends WebSecurityConfigurerAdapter {
+        private static final Logger LOGGER = LoggerFactory.getLogger(ActuatorBasicAuthConfig.class);
+
+        @Autowired
+        SecurityProperties securityProperties;
+
+        @Autowired
+        ManagementServerProperties managementServerProperties;
+
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            String adminRole = managementServerProperties.getSecurity().getRole();
+            String managementContextPath = managementServerProperties.getContextPath();
+            LOGGER.info("Enabling basic auth security for management path {} with role {}",managementContextPath,adminRole);
+            http
+                    .antMatcher(managementContextPath + "/**")
+                    .authorizeRequests()
+                    .anyRequest()
+                    .hasRole("ADMIN")
                     .and()
-                    .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
+                    .formLogin().disable()
+                    .csrf().disable()
+                    .httpBasic();
+//                .antMatcher("/**").authorizeRequests()
+//                    .anyRequest()
+
+//                .antMatchers(managementContextPath + "/health", managementContextPath + "/info").permitAll()
+//                .antMatchers(managementContextPath + "/**").hasRole(adminRole)
+//                .and()
+//                .formLogin().disable()
+//                .csrf().disable()
+//                .httpBasic();
         }
-        http.logout()
-                .and()
-                .antMatcher("/**").authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
-                .sessionManagement().sessionCreationPolicy(securityProperties.getSessions());
     }
 
-    private Filter csrfHeaderFilter() {
-        return new OncePerRequestFilter() {
-            @Override
-            protected void doFilterInternal(HttpServletRequest request,
-                                            HttpServletResponse response, FilterChain filterChain)
-                    throws ServletException, IOException {
-                CsrfToken csrf = (CsrfToken) request.getAttribute(CsrfToken.class
-                        .getName());
-                if (csrf != null) {
-                    Cookie cookie = WebUtils.getCookie(request, "XSRF-TOKEN");
-                    String token = csrf.getToken();
-                    if (cookie == null || token != null
-                            && !token.equals(cookie.getValue())) {
-                        cookie = new Cookie("XSRF-TOKEN", token);
-                        cookie.setPath("/");
-                        response.addCookie(cookie);
-                    }
-                }
-                filterChain.doFilter(request, response);
+    @Configuration
+    @EnableOAuth2Sso
+    public static class OAuth2SecurityConfig extends WebSecurityConfigurerAdapter {
+        private static final Logger LOGGER = LoggerFactory.getLogger(OAuth2SecurityConfig.class);
+
+        @Autowired
+        SecurityProperties securityProperties;
+
+        @Override
+        public void configure(HttpSecurity http) throws Exception {
+            if (securityProperties.isRequireSsl()) {
+                LOGGER.info("SSL enabled in springboot config, cannot access this app using http");
+                http.requiresChannel().anyRequest().requiresSecure();
             }
-        };
-    }
+            if (securityProperties.isEnableCsrf()) {
+                LOGGER.info("CSRF enabled in springboot config");
+                http.csrf()
+                        .csrfTokenRepository(csrfTokenRepository())
+                        .and()
+                        .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
+            }
+            http
+                    .antMatcher("/**").authorizeRequests()
+                    .anyRequest().authenticated()
+                    .and()
+                    .formLogin()
+                    .and()
+                    .sessionManagement().sessionCreationPolicy(securityProperties.getSessions());
+        }
 
-    private CsrfTokenRepository csrfTokenRepository() {
-        HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
-        repository.setHeaderName("X-XSRF-TOKEN");
-        return repository;
+        private Filter csrfHeaderFilter() {
+            return new OncePerRequestFilter() {
+                @Override
+                protected void doFilterInternal(HttpServletRequest request,
+                                                HttpServletResponse response, FilterChain filterChain)
+                        throws ServletException, IOException {
+                    CsrfToken csrf = (CsrfToken) request.getAttribute(CsrfToken.class
+                            .getName());
+                    if (csrf != null) {
+                        Cookie cookie = WebUtils.getCookie(request, "XSRF-TOKEN");
+                        String token = csrf.getToken();
+                        if (cookie == null || token != null
+                                && !token.equals(cookie.getValue())) {
+                            cookie = new Cookie("XSRF-TOKEN", token);
+                            cookie.setPath("/");
+                            response.addCookie(cookie);
+                        }
+                    }
+                    filterChain.doFilter(request, response);
+                }
+            };
+        }
+
+        private CsrfTokenRepository csrfTokenRepository() {
+            HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+            repository.setHeaderName("X-XSRF-TOKEN");
+            return repository;
+        }
     }
 }

@@ -14,6 +14,7 @@
 
 package com.orange.clara.cloud.services.sandbox.ui;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.context.annotation.Profile;
@@ -25,7 +26,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = ElpaasoSandboxUiApplication.class)
 @WebAppConfiguration
-@ActiveProfiles("orange")
+//@ActiveProfiles("orange")
+@Ignore("Enable with an UAA is launch during test")
 public class ElpaasoSandboxUiApplicationTests {
 
 	@Test
