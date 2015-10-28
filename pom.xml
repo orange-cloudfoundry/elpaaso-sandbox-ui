@@ -14,7 +14,7 @@
 
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -143,8 +143,10 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory</wroManagerFactory>
-                    <cssDestinationFolder>${project.build.directory}/generated-resources/static/css</cssDestinationFolder>
+                    <wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory
+                    </wroManagerFactory>
+                    <cssDestinationFolder>${project.build.directory}/generated-resources/static/css
+                    </cssDestinationFolder>
                     <jsDestinationFolder>${project.build.directory}/generated-resources/static/js</jsDestinationFolder>
                     <wroFile>${project.build.directory}/wro/wro.xml</wroFile>
                     <extraConfigFile>${basedir}/src/main/wro/wro.properties</extraConfigFile>
@@ -154,7 +156,7 @@
                     <dependency>
                         <groupId>org.webjars</groupId>
                         <artifactId>jquery</artifactId>
-                        <version>2.1.1</version>
+                        <version>2.1.4</version>
                     </dependency>
                     <dependency>
                         <groupId>org.webjars</groupId>
@@ -165,6 +167,16 @@
                         <groupId>org.webjars</groupId>
                         <artifactId>bootstrap</artifactId>
                         <version>3.2.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.webjars.bower</groupId>
+                        <artifactId>materialize</artifactId>
+                        <version>0.97.1</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.webjars</groupId>
+                        <artifactId>prismjs</artifactId>
+                        <version>1.0.0</version>
                     </dependency>
                 </dependencies>
             </plugin>

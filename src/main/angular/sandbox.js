@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2015 Orange
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,17 +12,13 @@
  *
  */
 
-angular.module('sandbox', [ 'ngRoute' ]).config(function($routeProvider, $httpProvider) {
+angular.module('sandbox', ['ngRoute', 'ngClipboard']).config(function ($routeProvider, $httpProvider, ngClipProvider) {
+    ngClipProvider.setPath("js/zeroclipboard/ZeroClipboard.swf");
+    $routeProvider.when('/', {
+        templateUrl: 'home.html',
+        controller: 'home'
+    }).otherwise('/');
 
-	$routeProvider.when('/', {
-		templateUrl : 'home.html',
-		controller : 'home'
-	}).otherwise('/');
+    $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-	$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
-}).controller('home', function($scope, $http) {
-	$http.get('v1/sandboxes/me').success(function(data) {
-		$scope.sandbox = data;
-	})
 });

@@ -1,4 +1,3 @@
-
 <!--
   ~ Copyright (C) 2015 Orange
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,12 +11,56 @@
   ~ limitations under the License.
   ~
   -->
+<div id="details" class="section">
+    <div ng-show="showprogressbar == true">
+        <div class="progress blue-cf">
+            <div class="indeterminate blue-cf lighten-2"></div>
+        </div>
+    </div>
+    <div ng-show="showprogressbar == false">
+        <div class="section">
+            <div class="row">
+                <div class="col s12 m12">
+                    <div class="icon-block">
+                        <h2 class="center blue-cf-text text-lighten-1"><i class="material-icons">play_for_work</i>
+                        </h2>
+                        <h5 class="center">Login and play</h5>
 
-<h1>your sandbox details</h1>
-<div>
-	<p>Your org name is : <b>{{sandbox.orgName}}</b></p>
-	<p>Your space name is : <b>  {{sandbox.spaceName}}</b></p>
-	<p>You can login to your space by typing :</p>
-	<p>cf login --skip-ssl-validation -a {{sandbox.apiUrl}} -u {{sandbox.spaceName}} -o {{sandbox.orgName}} -s {{sandbox.spaceName}}</p>
-</div>
+                        <p class="center-align">
+                            Login in your private cloud foundry space by using this command line:
+                            <ng-prism class="language-bash">{{ connectionPhrase }}</ng-prism>
+                            <a href="#" onclick="return false;"
+                               clip-copy="connectionPhrase"
+                               clip-click="showMessageCopied()"
+                               class="btn-large waves-effect waves-light blue-cf darken-1">
+                                <i class="material-icons">content_copy</i> Copy it !
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="icon-block">
+                        <h2 class="center blue-cf-text text-lighten-1"><i class="material-icons">supervisor_account</i>
+                        </h2>
+                        <h5 class="center">org name</h5>
+
+                        <p class="light center-align">You are now a member of the organization: <span
+                                class="blue-cf-text text-accent-1">{{sandbox.orgName}}</span></p>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="icon-block">
+                        <h2 class="center blue-cf-text text-lighten-1"><i class="material-icons">person_pin</i></h2>
+                        <h5 class="center">space name</h5>
+
+                        <p class="light center-align">You own the space <span class="blue-cf-text text-accent-1">{{sandbox.spaceName}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>

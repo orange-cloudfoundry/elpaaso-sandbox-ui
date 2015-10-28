@@ -1,0 +1,157 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: #424242;
+}
+
+.nav-wrapper a {
+  color: #f0f0f0;
+}
+
+.side-nav,
+.side-nav a {
+  color: #424242;
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+.border-5 {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.brand-logo img {
+  height: 54px;
+  float: left;
+  margin-top: 5px;
+  margin-right: 3px;
+  background-color: white;
+}
+
+#wrapper {
+  min-height: 100%;
+  position: relative;
+}
+
+.container {
+  padding-bottom: 75px;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.materialize-blue-cf.lighten-1 {
+  background-color: #2EA3F2 !important;
+}
+
+.materialize-blue-cf-text.text-lighten-1 {
+  color: #2EA3F2 !important;
+}
+
+.materialize-blue-cf.lighten-2 {
+  background-color: #B0E4F9 !important;
+}
+
+.materialize-blue-cf-text.text-lighten-2 {
+  color: #B0E4F9 !important;
+}
+
+.materialize-blue-cf {
+  background-color: #2B98CE !important;
+}
+
+.materialize-blue-cf-text {
+  color: #2B98CE !important;
+}
+
+.materialize-blue-cf.darken-1 {
+  background-color: #1E73BE !important;
+}
+
+.materialize-blue-cf-text.text-darken-1 {
+  color: #1E73BE !important;
+}
+
+.blue-cf.lighten-2 {
+  background-color: #B0E4F9 !important;
+}
+
+.blue-cf-text.text-lighten-2 {
+  color: #B0E4F9 !important;
+}
+
+.blue-cf.lighten-1 {
+  background-color: #2EA3F2 !important;
+}
+
+.blue-cf-text.text-lighten-1 {
+  color: #2EA3F2 !important;
+}
+
+.blue-cf {
+  background-color: #2B98CE !important;
+}
+
+.blue-cf-text {
+  color: #2B98CE !important;
+}
+
+.blue-cf.darken-1 {
+  background-color: #1E73BE !important;
+}
+
+.blue-cf-text.text-darken-1 {
+  color: #1E73BE !important;
+}
+
+.blue-cf.accent-1 {
+  background-color: #70ACD5 !important;
+}
+
+.blue-cf-text.text-accent-1 {
+  color: #70ACD5 !important;
+}
+
+.border-blue-cf {
+  border-color: #2B98CE;
+}
+
+/* give blue-cf color for link and dropdown link */
+a {
+  color: #2B98CE;
+}
+
+.dropdown-content li > a,
+.dropdown-content li > span {
+  color: #2B98CE;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+/* prism */
+code[class*="language-"], pre[class*="language-"] {
+  text-shadow: none;
+  color: white;
+}
