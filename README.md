@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Orange-OpenSource/elpaaso-sandbox-service.svg?branch=master)](https://travis-ci.org/Orange-OpenSource/elpaaso-sandbox-ui)
+
 # elpaaso-sandbox-ui
 elpaaso sandbox ui
 
