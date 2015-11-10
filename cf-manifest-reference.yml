@@ -1,0 +1,37 @@
+---
+applications:
+- name: sandbox-ui
+  memory: 512M
+  instances: 1
+  host: sandbox-ui
+  env:
+    # Required SSL by default (using tomcat x-forwarded-for and x-forwarded-proto)
+    #SECURITY_REQUIRE_SSL: true
+
+    # CSRF protection is enabled by default
+    #SECURITY_ENABLE_CSRF: true
+
+    # Allow to disable SSL certificate check. SHOULD NOT BE disabled !!!
+    # ENABLE_SSL_CERTIFICATE_CHECK: false
+
+    # Sandbox service url - Required Parameter
+    SANDBOX_SERVICE_HOST:
+
+    # UAA host, used for access token and - Required Parameter
+    UAA_HOST: https://login.admin-cf.poc.elpaaso.rd.francetelecom.fr
+
+    #Basic Auth actuator enpoint protection
+    # You can customize, user name required to access actuator endpoint (default: admin)
+    # SECURITY_USER_NAME:
+
+    # You can customize user role required to access actuator endpoint (default: ADMIN)
+    # SECURITY_USER_ROLE:
+
+    # You should override admin_password (default: sandbox-admin)
+    ADMIN_PASSWORD:
+
+    # OAuth2
+    # You have to customize OAuth2 connection info
+    SECURITY_OAUTH2_CLIENT_CLIENT_ID:
+    SECURITY_OAUTH2_CLIENT_CLIENT_SECRET:
+    SECURITY_OAUTH2_RESOURCE_JWT_KEY_VALUE:

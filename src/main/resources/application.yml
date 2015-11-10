@@ -23,12 +23,7 @@ security:
       clientSecret:
     resource:
        jwt:
-#          keyValue: ${SECURITY_OAUTH2_RESOURCE_JWT_KEY_VALUE:no_key_defined}
-          keyValue: |
-            -----BEGIN PUBLIC KEY-----
-            MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQClowqk7KOc8PdRDUJyPq8GULhQxuyoe2tVBTgNDNOiphMMKHhTzMZqKn9u2oMzr4Qk3di6nQgeYKdcQC5BsQjR7+yrFlXDFLYxheFbtfzyBpbeMo7f6E0w23lmlPXa5vo7vsT90lQMIjRw45TdmPg7a5j48PMUGGK9KIpfe8UMxQIDAQAB
-            -----END PUBLIC KEY-----
-
+          keyValue: ${SECURITY_OAUTH2_RESOURCE_JWT_KEY_VALUE:no_key_defined}
 endpoints:
   actuator:
     sensitive: true
