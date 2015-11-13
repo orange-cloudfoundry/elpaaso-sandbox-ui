@@ -5,7 +5,7 @@ zuul:
   routes:
     sandboxes:
       path: /v1/sandboxes/**
-      url: ${SANDBOX_SERVICE_HOST:http://localhost:8081}/v1/sandboxes
+      url: ${SANDBOX_SERVICE_URL:http://localhost:8081}/v1/sandboxes
 #enableSslCertificateCheck: true
 security:
   enable_csrf: true
@@ -16,8 +16,8 @@ security:
     password: ${ADMIN_PASSWORD:sandbox-admin}
   oauth2:
     client:
-      accessTokenUri: ${UAA_HOST:http://localhost}/oauth/token
-      userAuthorizationUri: ${UAA_HOST:http://localhost}/oauth/authorize
+      accessTokenUri: ${LOGIN_URL:http://localhost}/oauth/token
+      userAuthorizationUri: ${LOGIN_URL:http://localhost}/oauth/authorize
       clientAuthenticationScheme: header
       clientId:
       clientSecret:

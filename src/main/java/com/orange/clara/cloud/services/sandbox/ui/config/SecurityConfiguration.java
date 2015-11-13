@@ -48,8 +48,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @EnableWebSecurity(debug = false)
-//@EnableOAuth2Sso
-public class SecurityConfiguration /*extends WebSecurityConfigurerAdapter */{
+public class SecurityConfiguration {
     private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfiguration.class);
 
     @Autowired
@@ -93,15 +92,6 @@ public class SecurityConfiguration /*extends WebSecurityConfigurerAdapter */{
                     .formLogin().disable()
                     .csrf().disable()
                     .httpBasic();
-//                .antMatcher("/**").authorizeRequests()
-//                    .anyRequest()
-
-//                .antMatchers(managementContextPath + "/health", managementContextPath + "/info").permitAll()
-//                .antMatchers(managementContextPath + "/**").hasRole(adminRole)
-//                .and()
-//                .formLogin().disable()
-//                .csrf().disable()
-//                .httpBasic();
         }
     }
 

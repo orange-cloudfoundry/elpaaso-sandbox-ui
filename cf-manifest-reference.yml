@@ -15,12 +15,12 @@ applications:
     # ENABLE_SSL_CERTIFICATE_CHECK: false
 
     # Sandbox service url - Required Parameter
-    SANDBOX_SERVICE_HOST:
+    SANDBOX_SERVICE_URL:
 
-    # UAA host, used for access token and - Required Parameter
-    UAA_HOST: https://login.admin-cf.poc.elpaaso.rd.francetelecom.fr
+    # Login url, used for access token and - Required Parameter
+    LOGIN_URL: https://login.admin-cf.poc.elpaaso.rd.francetelecom.fr
 
-    #Basic Auth actuator enpoint protection
+    # Basic Auth actuator enpoint protection
     # You can customize, user name required to access actuator endpoint (default: admin)
     # SECURITY_USER_NAME:
 
