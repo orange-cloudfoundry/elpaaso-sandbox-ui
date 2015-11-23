@@ -69,7 +69,5 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 
-/sandbox-service_manifest.yml
 /sandbox-ui_manifest.yml
 application-orange.yml
-# Created by .ignore support plugin (hsz.mobi)
