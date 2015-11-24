@@ -51,10 +51,10 @@ To be able to build this project, you have to update your maven settings. You ca
 ## Deploy on CloudFoundry
 Please use manifest-reference.yml as template for your CF CLI manifest file.
 
-``
+```
 $ mvn package
 $ cf push sanbox-ui -p target/elpaaso-sandbox-ui-1.0-SNAPSHOT.jar -m manifest.yml
-``
+```
 
 # Running
 ## Pre-requisites
