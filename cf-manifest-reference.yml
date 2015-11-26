@@ -1,9 +1,9 @@
 ---
 applications:
-- name: sandbox-ui
+- name: elpaaso-sandbox-ui
   memory: 512M
   instances: 1
-  host: sandbox-ui
+  host: elpaaso-sandbox-ui
   env:
     # Required SSL by default (using tomcat x-forwarded-for and x-forwarded-proto)
     #SECURITY_REQUIRE_SSL: true
