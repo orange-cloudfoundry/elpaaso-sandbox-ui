@@ -1,6 +1,11 @@
 logging.level.org.springframework.security: INFO
 logging.level.org.apache.http.wire: INFO
+logging.level.com.orange.clara.cloud.services.sandbox.ui: INFO
 
+sandbox:
+  service:
+    url: ${SANDBOX_SERVICE_URL:http://localhost:8081}
+    healthContextPath: /manage/health
 zuul:
   routes:
     sandboxes:
