@@ -70,4 +70,4 @@ buildNumber.properties
 .mvn/timing.properties
 
 /sandbox-ui_manifest.yml
-application-orange.yml
+**/application-orange.yml
