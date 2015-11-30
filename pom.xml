@@ -116,10 +116,6 @@
         </resources>
         <plugins>
             <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
@@ -130,7 +126,7 @@
                         <!-- Serves *only* to filter the wro.xml so it can get an absolute
                             path for the project -->
                         <id>copy-resources</id>
-                        <phase>validate</phase>
+                        <phase>generate-resources</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
