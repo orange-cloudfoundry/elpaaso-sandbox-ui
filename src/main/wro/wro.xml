@@ -13,7 +13,7 @@
   -->
 
 <groups xmlns="http://www.isdc.ro/wro">
-    <group name="angular-bootstrap">
+    <group name="angular-sandbox">
         <css>webjar:materialize/0.97.1/dist/css/materialize.min.css</css>
         <css>file:@project.basedir@/src/main/resources/static/css/style.css</css>
         <js>webjar:jquery/2.1.4/jquery.min.js</js>
