@@ -28,7 +28,7 @@ import java.util.Map;
 /**
  * Created by O. Orand on 26/11/2015.
  */
-@Component
+@Component(value = "sandboxService")
 public class SandboxServiceHealth implements HealthIndicator {
     private static final Logger logger = LoggerFactory.getLogger(SandboxServiceHealth.class);
 
