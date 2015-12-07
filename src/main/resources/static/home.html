@@ -11,6 +11,24 @@
   ~ limitations under the License.
   ~
   -->
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container" style="margin-bottom: 0; padding-bottom: 0;" ng-show="showprogressbar == true">
+        <h1 class="header center grey-text darken-3">Please wait...</h1>
+
+        <div class="row center">
+            <h5 class="header col s12 light">We're setting up the Cloud Foundry platform with a private space.</h5>
+        </div>
+    </div>
+
+    <div class="container" style="margin-bottom: 0; padding-bottom: 0;" ng-show="showprogressbar == false">
+        <h1 class="header center grey-text darken-3">You're all set</h1>
+
+        <div class="row center">
+            <h5 class="header col s12 light">You're all set to discover the Cloud Foundry platform: a private space
+                is now allocated to you for playing and trying things out.</h5>
+        </div>
+    </div>
+</div>
 <div id="details" class="section">
     <div ng-show="showprogressbar == true">
         <div class="progress blue-cf">

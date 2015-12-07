@@ -16,7 +16,9 @@ body {
 .nav-wrapper a {
   color: #f0f0f0;
 }
-
+.section {
+  padding-top: 0px;
+}
 .side-nav,
 .side-nav a {
   color: #424242;
