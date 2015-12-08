@@ -1,7 +1,4 @@
-[![Build Status](https://travis-ci.org/Orange-OpenSource/elpaaso-sandbox-service.svg?branch=master)](https://travis-ci.org/Orange-OpenSource/elpaaso-sandbox-ui)
-
-# elpaaso-sandbox-ui
-[![Build Status](https://travis-ci.org/Orange-OpenSource/elpaaso-sandbox-ui.svg?branch=master)](https://travis-ci.org/Orange-OpenSource/elpaaso-sandbox-ui)
+# elpaaso-sandbox-ui [![Build Status](https://travis-ci.org/Orange-OpenSource/elpaaso-sandbox-service.svg?branch=master)](https://travis-ci.org/Orange-OpenSource/elpaaso-sandbox-ui)
 [![Apache Version 2 Licence](http://img.shields.io/:license-Apache%20v2-blue.svg)](LICENSE)
 [![Bintray](https://www.bintray.com/docs/images/bintray_badge_color.png)](https://bintray.com/elpaaso/maven/elpaaso-sandbox-ui/view?source=watch)
 [![JCenter](https://img.shields.io/badge/JCenter-available-blue.svg)](https://bintray.com/bintray/jcenter?filterByPkgName=elpaaso-sandbox-ui)
