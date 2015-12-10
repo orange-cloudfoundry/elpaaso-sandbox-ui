@@ -58,6 +58,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <wro4j.version>1.7.6</wro4j.version>
+        <spring-boot-ssl-truststore-gen.version>1.1.20</spring-boot-ssl-truststore-gen.version>
     </properties>
 
     <dependencies>
@@ -104,6 +105,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.orange.clara.cloud.boot.ssl-truststore-gen</groupId>
+            <artifactId>spring-boot-ssl-truststore-gen</artifactId>
+            <version>${spring-boot-ssl-truststore-gen.version}</version>
+        </dependency>
+
     </dependencies>
     <build>
         <resources>
