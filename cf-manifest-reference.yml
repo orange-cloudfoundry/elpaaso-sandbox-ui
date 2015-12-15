@@ -14,8 +14,8 @@ applications:
     # Allow to disable SSL certificate check. SHOULD NOT BE disabled !!!
     # ENABLE_SSL_CERTIFICATE_CHECK: false
 
-    # Trusted Self-Signed Root CA Certificates to be added to JVM truststore
-    TRUSTSTORE:
+    # Trusted Self-Signed Root CA Certificate to be added to JVM truststore
+    TRUSTED_CA_CERTIFICATE:
 
     # Sandbox service url - Required Parameter
     SANDBOX_SERVICE_URL:
