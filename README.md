@@ -4,10 +4,15 @@
 [![JCenter](https://img.shields.io/badge/JCenter-available-blue.svg)](https://bintray.com/bintray/jcenter?filterByPkgName=elpaaso-sandbox-ui)
 [![Join the chat at https://gitter.im/Orange-OpenSource/elpaaso](https://img.shields.io/badge/gitter-join%20chat%20→-brightgreen.svg)](https://gitter.im/Orange-OpenSource/elpaaso?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-elpaaso sandbox ui
+## Overview 
 
+elpaaso sandbox ui is an Angular and spring Oauth2 security based GUI to create a sandbox space leveraging  [sandbox-service](https://github.com/Orange-OpenSource/elpaaso-sandbox-service).
 
-Angular and spring Oauth2 security based GUI to create a [sandbox](https://github.com/Orange-OpenSource/elpaaso-sandbox-service.git).
+Screenshot:
+
+following the UAA login screen with user consent, then the following screen displays the created sandbox space: 
+![Sandbox-ui screenshot](https://cloud.githubusercontent.com/assets/4748380/12049351/4776fcf0-aee6-11e5-83ef-893b26ac745c.png)
+
 
 Credits to [spring security angular sample](https://github.com/dsyer/spring-security-angular.git).
 
@@ -18,9 +23,9 @@ Credits to [spring security angular sample](https://github.com/dsyer/spring-secu
 ### Overview
 
 ![Sandbox UI](http://g.gravizo.com/g?
-@startuml
+@startuml;
 User -> SandboxUI: GET sandboxes/me;
-User <-- SandboxUI: 302 location=uaa/login;
+User <-- SandboxUI: 302 location=uaa/oauth/authorize;
 User -> uaa: ....;
 User <-- uaa: 302: GET: SandboxUI/sandboxes/me?code=rezrze;
 User -> SandboxUI : GET /sandboxes/me?code=rezrze;
