@@ -8,15 +8,10 @@
 
 elpaaso sandbox ui is an Angular and spring Oauth2 security based GUI to create a sandbox space leveraging  [sandbox-service](https://github.com/Orange-OpenSource/elpaaso-sandbox-service).
 
-Screenshot:
-
-following the UAA login screen with user consent, then the following screen displays the created sandbox space: 
+Following the UAA login screen with user consent, then the following screen displays the created sandbox space details: 
 ![Sandbox-ui screenshot](https://cloud.githubusercontent.com/assets/4748380/12049351/4776fcf0-aee6-11e5-83ef-893b26ac745c.png)
 
-
 Credits to [spring security angular sample](https://github.com/dsyer/spring-security-angular.git).
-
-
 
 ## Tech specs of the sandbox service
 
