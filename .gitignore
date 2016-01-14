@@ -69,5 +69,5 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 
-/sandbox-ui_manifest.yml
+/sandbox-ui_manifest*.yml
 **/application-orange.yml

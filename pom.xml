@@ -153,7 +153,7 @@
                             <exclude>**/.mvn/**</exclude>
                             <exclude>mvnw**</exclude>
                             <exclude>**/**.puml</exclude>
-                            <exclude>sandbox-ui_manifest.yml</exclude>
+                            <exclude>sandbox-ui_manifest*.yml</exclude>
                         </excludes>
                         <useDefaultExcludes>true</useDefaultExcludes>
                     </configuration>
