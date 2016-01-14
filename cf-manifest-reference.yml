@@ -28,13 +28,13 @@ applications:
     # ENABLE_SSL_CERTIFICATE_CHECK: false
 
     # Trusted Self-Signed Root CA Certificate to be added to JVM truststore
-    TRUSTED_CA_CERTIFICATE:
+    TRUSTED_CA_CERTIFICATE: ""
 
     # Sandbox service url - Required Parameter
-    SANDBOX_SERVICE_URL:
+    SANDBOX_SERVICE_URL: "set-your-sandbox-service-url"
 
-    # Login url, used for access token and - Required Parameter
-    LOGIN_URL:
+    # Login url, used for access token and for JWT verification key download - Required Parameter
+    LOGIN_URL: "set-your-login-url"
 
     # Basic Auth actuator enpoint protection
     # You can customize, user name required to access actuator endpoint (default: admin)
@@ -44,10 +44,9 @@ applications:
     # SECURITY_USER_ROLE:
 
     # You should override admin_password (default: sandbox-admin)
-    ADMIN_PASSWORD:
+    ADMIN_PASSWORD: sandbox-admin
 
     # OAuth2
     # You have to customize OAuth2 connection info
-    SECURITY_OAUTH2_CLIENT_CLIENT_ID:
-    SECURITY_OAUTH2_CLIENT_CLIENT_SECRET:
-    SECURITY_OAUTH2_RESOURCE_JWT_KEY_VALUE:
+    SECURITY_OAUTH2_CLIENT_CLIENT_ID: "set-your-client-id"
+    SECURITY_OAUTH2_CLIENT_CLIENT_SECRET: "set-your-client-id"

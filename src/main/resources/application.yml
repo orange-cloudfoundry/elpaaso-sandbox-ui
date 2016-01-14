@@ -41,7 +41,7 @@ security:
       clientSecret:
     resource:
        jwt:
-          keyValue: ${SECURITY_OAUTH2_RESOURCE_JWT_KEY_VALUE:no_key_defined}
+          key-uri: ${LOGIN_URL:http://localhost}/token_key
 endpoints:
   actuator:
     sensitive: true
