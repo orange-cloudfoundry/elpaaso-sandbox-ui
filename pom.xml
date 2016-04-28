@@ -26,9 +26,9 @@
     <description>UI for ElPaaSo Sandbox service</description>
 
     <parent>
-        <groupId>com.orange.clara.cloud.maven</groupId>
-        <artifactId>elpaaso-starter-parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.3.0.RELEASE</version>
         <relativePath/>
         <!-- lookup parent from repository -->
     </parent>
