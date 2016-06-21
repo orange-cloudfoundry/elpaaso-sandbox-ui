@@ -4,8 +4,7 @@ services:
 - docker
 script:
   - chmod ugo+x bin/*.sh
-  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && docker run -it -v $(pwd):/root/sources -e BINTRAY_USER -e BINTRAY_PASSWORD -e COVERALLS_TOKEN -e TRAVIS_BRANCH -e TRAVIS_TAG -e TRAVIS_PULL_REQUEST -e TRAVIS_BUILD_NUMBER -e TRAVIS_REPO_SLUG -w /root/sources maven:3.3.3-jdk-8 bin/build.sh || true'
-  - '[ "${TRAVIS_PULL_REQUEST}" != "false" ] && docker run -it -v $(pwd):/root/sources -w /root/sources maven:3.3.3-jdk-8 mvn clean verify --settings settings.xml || true'
+  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && docker run -it -v $(pwd):/root/sources -e BINTRAY_USER -e BINTRAY_PASSWORD -e COVERALLS_TOKEN -e TRAVIS_BRANCH -e TRAVIS_TAG -e TRAVIS_PULL_REQUEST -e TRAVIS_BUILD_NUMBER -e TRAVIS_REPO_SLUG -w /root/sources maven:3.3.3-jdk-8 bin/build.sh || false'
 env:
   global:
   - secure: gslec+AWwsT/xIr05S4UGgt/5M5bGcNcRiSUJlyadrXnoID8Atol3o65iUKBp6Xf1PjyPgajP/WKUGpndsw21zz/YR/QZSWICi6Frde+jvUqudbiz1Ce0FMKdpxlYeZCRWCUG5Z2Zp0LoB2AGLAJ7v6b+e04zgsTk7cob2olLWVJGkV7DnzmyNXnHXdaRCJlJRF4bHALqVGWhLwsmf7y1+Qe+dRPJxM9d8GbDaNKBJj+uaZ76O46M201DYu7folddvixGOo2uXD1kl7tHK9W4qgOuQeHN1Zt9jCQjYhhY7kvuidrmjBVzyzA0PHRZ1c5//z7l17vEJ/fSJ9jQfpiw+mjNNbh8fTHLhEtrydvpS0MXionf5SZDHNRGl/mGu0S+a4d+lSEUQtk2qi/roAvQ6FugQv42HIcPwP8sDi164DMjGfLQHuf/moGprwXF2/p8JERmICuQs5fiTD4Q64arRSq/bhgWAarkvUhy0vQtMj2sb6YEFgxnS+QYFfSX4x25+6e7jkvMY3HNQBTPxL0nb1JkuBY1JlXHxtn4zmOx5zntFJEGwzZfLxQ4P3/j0QP7G4AKKeVlyoaSEIXsEnNybB68AoxakJSyNjAW/tZuiohlMgNOhFlSBbrKkT6aN4KrcU0PJqUgtJtPi+hPKEPsK4PFt1n3HU6dV5uqOdk4b0=
