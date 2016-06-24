@@ -13,10 +13,16 @@
 #
 
 platform: linux
-image: docker:///java#8-jdk
+image_resource:
+  type: docker-image
+  source:
+    repository: java
+    tag: 8-jdk
 
 inputs:
- - name: elpaaso-sandbox-ui
+  - name: project-path
+outputs:
+  - name: build-out
 
 run:
-  path: elpaaso-sandbox-ui/ci/unit-test.sh
+  path: project-path/ci/unit-test.sh

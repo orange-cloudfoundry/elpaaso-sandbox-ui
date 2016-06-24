@@ -13,14 +13,14 @@
 #
 
 platform: linux
-image: docker:///java#8-jdk
+image_resource:
+  type: docker-image
+  source:
+    repository: java
+    tag: 8-jdk
 
 inputs:
-- name: elpaaso-sandbox-ui
+  - name: project-path
 
 run:
-  path: elpaaso-sandbox-ui/ci/deploy.sh
-
-params:
-  BINTRAY_USER:
-  BINTRAY_PASSWORD:
+  path: project-path/ci/deploy.sh
