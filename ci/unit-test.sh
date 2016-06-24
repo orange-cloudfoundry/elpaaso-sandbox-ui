@@ -13,7 +13,9 @@
 #
 
 set -e
+OUTPUT_DIR=$(pwd)/build-out
 
-pushd elpaaso-sandbox-ui
+pushd project-path
   ./mvnw verify -e -s settings.xml
+  cp target/*.jar $OUTPUT_DIR/application.jar
 popd
