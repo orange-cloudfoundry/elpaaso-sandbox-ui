@@ -14,6 +14,6 @@
 
 set -e
 
-pushd elpaaso-sandbox-ui
+pushd project-path
   ./mvnw -Dmaven.test.skip=true -e -s settings.xml deploy -Plicense-skip-check
 popd
