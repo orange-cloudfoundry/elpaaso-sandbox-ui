@@ -28,7 +28,7 @@ angular.module('sandbox').controller('home', function ($scope, $http) {
         .error(function (error) {
             $scope.showprogressbar = false;
             $scope.messageTitle = "Sorry, something goes wrong.";
-            $scope.messageBody = "Error: " + error.message;
+            $scope.messageBody = "Error: " + error[0].message;
             Materialize.toast("Try again or contact your administrator !", 5000, 'rounded');
             jQuery('#toast-container').click(function(){
                 jQuery(this).remove();
