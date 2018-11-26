@@ -17,6 +17,10 @@ Credits to [spring security angular sample](https://github.com/dsyer/spring-secu
 
 ### Overview
 
+![seq diagram](http://www.plantuml.com/plantuml/svg/ZL7DIWCn4Bxx5CEUNLVqjhLQA2AUQyzXp0uQtCsKIIAoJs_Ii2IAbUOGc9dlvnjcupoA3zEuWekz8u7s7dPeXrV-sZ_tyFJu0YwNvBg95jHTszQms-iR65cZDspN0R5Z3FwzIn-BcQaIZzCUhkAhfL8pYHmD-wBSrTuFcWTQ2yqoqrzf8SVzZrEmESb2oN4zVv0zoSWv4oL4PtK4hufx5ML7ycaqzP2t_DbDkErMuS7KysBnIwDXULCM9sek6tT0JKkXTT9GGSRcn57Ef6x83l7-tm00)
+
+<!--
+
 ![Sandbox UI](http://g.gravizo.com/g?
 @startuml;
 User -> SandboxUI: GET sandboxes/me;
@@ -33,6 +37,7 @@ User <-- SandboxUI: "org_name","space_name","cc_api_url";
 @enduml
 )
 
+--> 
 
 # Build
 To be able to build this project, you have to update your maven settings. You can use the one provided [here]()
